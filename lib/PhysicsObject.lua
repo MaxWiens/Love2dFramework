@@ -4,15 +4,31 @@
 require 'lib.oop'
 require 'lib.physics'
 
+--[[
+PhysicsObject
+==============================
+_body : Body
+_shape : Shape 
+_fixture : Fixture
+==============================
+load(body, shape)
+update()
+draw()
+setX(Number val)
+setY(Number val)
+getX() : Number
+getY() : Number
+--]]
+
 PhysicsObject = {
 	_body = nil,
 	_shape = nil,
 	_fixture = nil,
 	
-	load = function(self, body, shape, )
+	load = function(self, body, shape, density)
 		self._body = body
 		self._shape = shape
-		self._fixture = love.physics.newFixture(self._body, self._shape)
+		self._fixture = love.physics.newFixture(self._body, self._shape, density)
 	end,
 
 	update = function(self)
@@ -24,19 +40,22 @@ PhysicsObject = {
 	end,
 
 	getX = function(self)
-		self._body:getX()
+		return self._body:getX()
 	end,
 	setX = function(self, val)
 		self._body:setX(val)
 	end,
 	getY = function(self)
-		self._body:getY()
+		return self._body:getY()
 	end,
 	setY = function(self, val)
 		self._body:setY(val)
 	end,
 }
 setmetatable(PhysicsObject, oop.prototypeMt)
+
+
+
 --[[
 RectanglePhysicsObject = {
 	load = function(self, width, height, world, density, x, y)
