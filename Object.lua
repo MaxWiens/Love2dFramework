@@ -14,8 +14,6 @@ setmetatable(_M, oop.PROTOTYPE_METATABLE)
 ---
 -- This function is called if there is no load function in the object prototype
 -- to use as a constructor and throws an error.
--- @param ... A number of arguments
---
 load = function ()
 	error("No load function in object prototype")
 end

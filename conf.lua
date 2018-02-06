@@ -1,5 +1,6 @@
+-- Required Object initalization not modify the following two lines
 local oop = require 'oop'
-oop.initalize(_G) -- Required initalization
+oop.initalize(_G)
 
 local ini = require 'fileFormat.ini'
 local Settings = require 'Settings'
@@ -13,7 +14,8 @@ else
 end
 
 function love.conf(t)
-	t.console = false
+
+	t.console = true
 	t.gammacorrect = settingsTable.video.gamma_correction
 
 	t.window.title = "Game"
@@ -31,7 +33,6 @@ function love.conf(t)
 	t.window.display = 1
 	t.window.highdpi = settingsTable.video.highdpi
 
-
 	t.window.vsync = settingsTable.video.vsync
-	t.console = false
 end
+

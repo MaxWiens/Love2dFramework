@@ -27,7 +27,7 @@ function convertString(str)
 
 	if numVal then
 		return numVal
-	elseif boolRef[str] then
+	elseif boolRef[str] ~= nil then
 		return boolRef[str]
 	elseif str == 'nil' then
 		return nil

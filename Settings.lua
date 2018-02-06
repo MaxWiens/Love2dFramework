@@ -93,3 +93,14 @@ end
 function DEFAULT_SETTINGS()
 	return util.deepClone(_DEFAULT_SETTINGS)
 end
+
+function updateSettings(self)
+	self:save()
+	love.window.setmode(
+		_current.video.window_width, 
+		_current.video.window_height,
+		{fullscreen=_current.video.fullscreen,
+		boarderless=_current.video.boarderless})
+	love.audio.setVolume(_current.audio.master_volume)
+	-- Display message that you may need to restart to see all changes take effect
+end
