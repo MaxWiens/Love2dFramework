@@ -7,6 +7,7 @@
 local Object = require 'Object'
 local extends = extends
 local pairs = pairs 
+local love = love
 
 module("Stage")
 extends(_M, Object)
@@ -16,12 +17,15 @@ local camera 		-- Camera object which the scene is viewed
 local _layerCount 	-- The number of lwayers
 local xMod
 local yMod
+local rgb
 
 ---
 -- Stage constructor
 -- @param cam Camera to display the stage
 -- @param layers Number of layers or a table containing Layer objects
-function load(self, cam, layers)
+-- @param rgb table containing the rgb values of the stage background
+function load(self, cam, layers, rgb)
+	rgb = rgb or {0,0,0}
 	local layers = layers or {}
 	self.camera = cam
 	self._layers = layers or {}
@@ -29,6 +33,7 @@ function load(self, cam, layers)
 		v.stage = self
 	end
 	self._layerCount = #layers
+	love.graphics.setBackgroundColor(rgb)
 end
 
 ---
