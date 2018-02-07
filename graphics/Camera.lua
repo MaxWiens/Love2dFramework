@@ -29,7 +29,7 @@ local _fixture		-- love physics fixture
 function load(self, xRes, yRes, world)
 	self._xResolution = xRes
 	self._yResolution = yRes
-	self._body = love.physics.newBody(world, 0, 0, 'dynamic')
+	self._body = love.physics.newBody(world, 0, 0, 'kinematic')
 	self._shape = love.physics.newRectangleShape(xRes/2, yRes/2, xRes, yRes)
 	self._fixture = love.physics.newFixture(self._body, self._shape)
 	self._body:setMass(0)

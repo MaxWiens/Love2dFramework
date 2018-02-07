@@ -64,7 +64,7 @@ function add(self, object)
 	objectsLength = #self._objects
 	insertionIndex = objectsLength+1
 	for i=objectsLength, 1, -1 do
-		if not _objects[i] then
+		if not self._objects[i] then
 			insertionIndex = i
 			break
 		end

@@ -28,7 +28,7 @@ function load(self, world, r, x, y, rgba )
 	self._shape = love.physics.newCircleShape(r)
 	self._fixture = love.physics.newFixture(self._body, self._shape)
 	self._body:setMass(10)
-	self._fixture:setRestitution(.8)
+	self._fixture:setRestitution(.1)
 end
 
 function draw(self, xMod, yMod)
