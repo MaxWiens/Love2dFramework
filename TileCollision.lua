@@ -87,7 +87,7 @@ load = function (self, world, collisionMap, xScale, yScale, collisionType)
 		end
 	end
 end
-
+--[[
 function draw(self, xMod, yMod)
 	for i,v in ipairs(self.collidables) do
 		points = {}
@@ -105,3 +105,4 @@ function draw(self, xMod, yMod)
 		love.graphics.setColor(r,g,b,a)
 	end
 end
+]]--

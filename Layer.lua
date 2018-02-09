@@ -26,7 +26,9 @@ function load(self, backGround, xPlx, yPlx)
 	self._objects = {}
 	self._xParalax = xPlx or 1
 	self._yParalax = yPlx or 1
-	backGround.layer = self
+	if backGround ~= nil then
+		backGround.layer = self
+	end
 	self._backGround = backGround
 
 end
@@ -49,7 +51,9 @@ end
 -- @param xMod The current X-position modifier
 -- @param yMod The current Y-position modifier
 function draw(self, xMod, yMod)
-	self._backGround:draw(self.xMod, self.yMod)
+	if self._backGround.draw then
+		self._backGround:draw(self.xMod, self.yMod)
+	end
 	for _,v in pairs(self._objects) do
 		if v.draw then
 			v:draw(self.xMod, self.yMod)
